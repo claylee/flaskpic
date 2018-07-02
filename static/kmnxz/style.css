@@ -1,0 +1,44 @@
+﻿*{
+	padding:0px;
+	margin:0px;
+}
+body {
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:12px;
+	letter-spacing:1px;
+	color:#555;
+}
+a{
+	color:#06C;
+}
+a:hover{
+	color:#F60;
+}
+a img{
+	border:none;
+}
+
+.flashbox {
+	width:578px;OVERFLOW: hidden; POSITION: relative; HEIGHT: 252px; margin-left:8px
+}
+.flashbox .pic {
+ WIDTH: 416px;POSITION: absolute; TOP: 0px; HEIGHT: 252px
+}
+.flashbox UL {
+	LEFT: 416px; WIDTH: 180px; POSITION: absolute; TOP: 0px
+}
+.flashbox LI {
+	OVERFLOW: hidden; HEIGHT: 50px;; 
+}
+.flashbox LI A {
+	background-position: 0% 0%; font-size:13px;DISPLAY: block; PADDING-LEFT: 10px; COLOR: #333333; POSITION: relative; HEIGHT: 50px;text-decoration:none; background-image:url('../images/flashtext-bg.jpg'); background-repeat:repeat-x; background-attachment:scroll; line-height:50px; font-family:微软雅黑
+}
+.flashbox LI.selected A {
+	background-position: left top; COLOR: #4395CF; TEXT-DECORATION: none;width:180px;margin-left:-20px;PADDING-LEFT: 30px;POSITION: absolute;*POSITION: relative;z-index:333;*z-index:auto; background-image:url('../images/flash-on.gif'); background-repeat:no-repeat; background-attachment:scroll
+}
+.flashbox LI A:hover {
+	background-position: left top; COLOR: #4395CF; TEXT-DECORATION: none;width:180px;margin-left:-20px;PADDING-LEFT: 30px;POSITION: absolute;*POSITION: relative;z-index:333;*z-index:auto; background-image:url('../images/flash-on.gif'); background-repeat:no-repeat; background-attachment:scroll
+}
+#SwitchNav {
+	
+}

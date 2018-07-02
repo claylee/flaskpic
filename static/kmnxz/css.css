@@ -1,0 +1,149 @@
+body         { margin: 0;  font-size:9pt; background-image:url('images/vip_bg.gif'); font-family:宋体; color:#333333 }
+a{text-decoration:none;font-size:9pt;color:#333333}
+a:visited{text-decoration:none;color:#333333}
+a:link{ color: #333333 }
+a:hover{color:#CC0000;text-decoration:underline}
+td{font-size:9pt;line-height:12pt;}
+ul, li, dl, dt, dd, form, input, h1, h2, h3, h4, h5, h6, span{ margin:0; padding:0; list-style:none}
+a img{
+	border:none;
+}
+#header         { width: 1000px; background-color: #FFFFFF; background-image:url('images/headerBg1.gif'); margin-left:auto; margin-right:auto }
+#navt        { border-bottom:1px solid #F2F2F2; width: 940px; height: 35px; line-height: 35px; text-align: right; 
+               margin-left: auto; margin-right: auto; padding-top: 5px; color:#808080; border-left-width:1px; border-right-width:1px; border-top-width:1px; padding-right:10px }
+.clink, a:link.clink, a:visited.clink, a:active.clink{font-size: 12px;color:#808080 }
+#navl        { width: 950px; height: 50px; margin-left: auto; margin-right: auto }
+.logo        { width: 270px; float: left; height:50px; text-align:left }
+.nav         { width: 680px; float: right; height:50px }
+.nav ul  { display:inline; clear:both; }
+.nav ul li { float:left;list-style-type:none;cursor:pointer;font-size: 10.5pt; color: #4395CF; 
+               text-align:center; font-weight:bold; line-height:25px; height:25px; font-family:微软雅黑; width:111px; text-decoration:none; margin-top:16px    }
+.nav ul li a:link {	FLOaT: left; COLOR: #4395CF; liST-STYLE-TYPE: none; TEXT-DECORaTION: none; font-size:10.5pt; font-weight:bold; width:111px; text-align:center; background-image:url('images/navone.gif')  }
+.nav ul li a:visited {	FLOaT: left; COLOR: #4395CF; liST-STYLE-TYPE: none; TEXT-DECORaTION: none; font-size:10.5pt; font-weight:bold; width:111px; text-align:center; background-image:url('images/navone.gif')  }
+.nav ul li a:hover {FLOaT: left; COLOR: #FFFFFF; liST-STYLE-TYPE: none; font-size:10.5pt; font-weight:bold; width:111px; text-align:center; background-image:url('images/navone.gif'); background-position-y:25px; text-decoration:none }
+#heng        { width: 928px; height: 279px; margin-top:10px; background-image:url('images/urban.jpg'); padding-left:11px; padding-right:11px; padding-top:11px; margin-left:auto; margin-right:auto  }
+.swfpic      { float: left; width: 594px; padding-top:8px  }
+.hengright   { width: 290px; float: right; padding-top:48px  }
+.hengright dt { float: left; width: 270px; line-height: 29px; text-align: left; text-indent: 
+               17px; border-left-width: 1px; border-right-width: 1px; 
+               border-top-width: 1px; border-bottom: 1px dotted #E1F1F7; 
+               background-image: url('images/line1.gif'); background-repeat: 
+               no-repeat; background-position: left center }
+.hengright dt a:link { font-size:10.5pt }
+.hengright dt a:visited { font-size:10.5pt }
+#cont        { width: 1000px; background-image: url('images/bodyBg.jpg'); margin-left:auto; margin-right:auto; padding-top:15px }
+#conta       { width: 950px; margin-left: auto; margin-right: auto;   }
+.connava     { width: 930px; height: 28px; text-align: right; padding-right: 20px; 
+               padding-top: 14px; background-image: url('images/nav1.gif') }
+.connavb     { width: 930px; height: 28px; text-align: right; padding-right: 20px; padding-top: 14px; background-image: url('images/nav2.gif') }
+.connavc     { width: 930px; height: 28px; text-align: right; padding-right: 20px; padding-top: 14px; background-image: url('images/nav3.gif') }
+.connavd     { width: 930px; height: 28px; text-align: right; padding-right: 20px; padding-top: 14px; background-image: url('images/nav4.gif') }
+.connave     { width: 930px; height: 28px; text-align: right; padding-right: 20px; padding-top: 14px; background-image: url('images/nav5.gif') }
+.conlista    { width: 950px; margin-left: auto; margin-right: auto; padding-top: 10px;  }
+.motoleft    { width: 942px; text-align:center; padding-left:8px; padding-top:5px }
+.motoleft ul.P2 li {	FLOAT: left; OVERFLOW: hidden; }
+.motoleft ul.P2 li {	WIDTH: 186px; HEIGHT: 170px; TEXT-ALIGN: left; OVERFLOW: hidden; }
+.t1 { text-align: center; width:170px; OVERFLOW: hidden;clear: both;display: block ;text-overflow:ellipsis; margin-left:auto; margin-right:auto;white-space:nowrap; }
+.motoleft ul.P2 li img {	padding:4px; border:1px solid #EAEAEA; DISPLAY: block; BACKGROUND: #FFFFFF; MARGIN-BOTTOM: 6px; WIDTH: 150px; HEIGHT: 120px;clear:both; margin-left:auto; margin-right:auto }
+.starleft    { width: 655px; float: right; text-align:center; padding-left:20px; padding-top:5px; height:415px }
+.starleft ul.P1 li {	FLOAT: left; overflow:hidden; }
+.starleft ul.P1 li {	WIDTH: 162px; HEIGHT: 205px; TEXT-ALIGN: center;overflow:hidden}
+.starleft ul.P1 li img {	padding:4px; border:1px solid #EAEAEA; DISPLAY: block; BACKGROUND: #FFFFFF; MARGIN-BOTTOM: 6px; WIDTH: 125px; HEIGHT: 165px; text-align:center; margin-left:auto; margin-right:auto}
+.starright   { border:1px solid #E3E3E3; float: left; width: 260px; text-align:left; margin-left:10px; margin-top:5px; padding-bottom:6px; background-image:url('images/picbg.jpg')  }
+.starright img { padding-bottom: 6px; padding-top:5px; text-align:center }
+.pichot{ background:url('images/pichot.png') no-repeat;width:79px; height:52px; position:absolute; _background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/pichot.png', sizingMethod='scale'); margin-left:0px }
+.onpic{ background:url('images/onpic.png') no-repeat;width:186px; height:20px; position:absolute; _background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/onpic.png', sizingMethod='scale'); margin-left:0px }
+#footer      { width: 1000px; height: 150px; margin-left: auto; margin-right: auto; 
+               background-image: url('images/footerBg.jpg'); 
+               background-repeat: no-repeat; background-position-y: top; padding-top:5px }
+#links       {
+	width: 920px;
+	height: 48px;
+	line-height: 20px;
+	font-family: 宋体;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 12px;
+	background-image: url('images/linksbg.gif');
+	background-repeat: no-repeat;
+	background-position: center top;
+	list-style-image: none;
+	list-style-type: none;
+}
+#links span  { color: #2D78B0 ;
+float:left;}
+#links li{
+float:left;
+margin-right:10px;}
+#copy        { width: 690px; line-height: 21px; text-align: center; height: 50px; 
+               border-left-width: 1px; border-right-width: 1px; 
+               border-top: 1px solid #F2F2F2; border-bottom-width: 1px; 
+               margin-left: auto; margin-right: auto; padding-top: 15px; 
+               letter-spacing:0px; font-family:宋体; margin-top:5px }
+/*------------------------------------分类样式-----------------------------------------*/
+#list_wz           {  width: 950px; height: 35px; line-height: 35px; text-align: left; text-indent: 
+               25px; margin-left: auto; margin-right: auto; margin-top: 8px; 
+               background-image: url('images/classwzbg.jpg')}
+.connavlist     {
+	width: 930px;
+	height: 27px;
+	text-align: left;
+	padding-right: 20px;
+	padding-top: 15px;
+	background-image: url('images/classnavbg.gif');
+	text-indent:40px;
+	font-size:18px;
+	font-family:"微软雅黑";
+	letter-spacing:1pt;
+	font-weight: bold;
+}
+.motoleft ul.P1 li {	FLOAT: left; overflow:hidden; }
+.motoleft ul.P1 li {	WIDTH: 185px; HEIGHT: 210px; TEXT-ALIGN: center;overflow:hidden}
+.motoleft ul.P1 li img {	padding:4px; border:1px solid #EAEAEA; DISPLAY: block; BACKGROUND: #FFFFFF; MARGIN-BOTTOM: 6px; WIDTH: 125px; HEIGHT: 165px; text-align:center; margin-left:auto; margin-right:auto}
+.t2 { text-align: center; width:160px; OVERFLOW: hidden;clear: both;display: block ;text-overflow:ellipsis; margin-left:auto; margin-right:auto;white-space:nowrap }
+.next  { width: 930px; height: 29px; line-height: 30px; background-color: #F0F9FE; margin-left:auto; margin-right:auto; clear:both; padding-top:3px}
+.next li {display:inline; text-align:center;font-weight:bold;margin-left:5px;margin-right:5px;color:#4395CF;background-color:#FFFFFF;border:1px solid #57A6C7; height:23px; line-height:24px; padding-left:6px; padding-right:3px; padding-top:3px; padding-bottom:3px  }
+.next li a:link {color:#4395CF; text-align:center; }
+.next li a:visited  {color:#4395CF; text-align:center; }
+.next li a:hover{color:#FFFFFF;text-align:center; background-color:#94D5F8; }
+.next li.thisclass {text-align:center;font-weight:bold;color:#FFFFFF;background-color:#94D5F8;border:1px solid #DCF3F5; ; height:23px; line-height:23px; font-size:10.5pt; padding-left:6px; padding-right:3px; padding-top:3px; padding-bottom:3px  }
+.listgg      { width: 950px; margin-left: auto; margin-right: auto; padding-top:15px }
+#footerlist      { width: 1000px; height: 100px; margin-left: auto; margin-right: auto; 
+               background-image: url('images/footerBglist.jpg'); 
+               background-repeat: no-repeat; background-position-y: top; padding-top:10px }
+#copylist        { width: 950px; line-height: 21px; text-align: center; height: 50px; 
+               border-left-width: 1px; border-right-width: 1px; 
+               border-top: 1px solid #F2F2F2; border-bottom-width: 1px; 
+               margin-left: auto; margin-right: auto; padding-top: 15px; 
+               letter-spacing:0px; font-family:宋体; margin-top:10px }
+/*------------------------------------内容样式-----------------------------------------*/
+.Ntitle		{ width: 950px; height: 60px; text-align: center; line-height: 60px; margin-left: auto; 
+               margin-right: auto; background-image: 
+               url('images/Newstitlebg.gif')}
+
+.Ntitle h1   { font-size: 20px; font-family: 微软雅黑; letter-spacing: 1pt; margin: 0px;font-weight:normal; color:#F37E00 }
+.Nsm         { width: 950px; text-align: center; line-height: 27px; margin-left: auto; 
+               margin-right: auto; background-color: #FAFAFA; font-family:Verdana }
+.Ntad        { width: 950px; text-align: center; margin-left: auto; margin-right: auto; 
+               padding-top: 20px; padding-bottom: 10px }
+.Npic        { width: 950px; text-align: center; margin-left: auto; margin-right: auto; 
+               padding-top: 15px; padding-bottom: 20px; font-size:10.5pt; line-height:23px }
+.forumallpages        { text-align:center;color:#0082CB;padding-bottom:15px;padding-top:10px;width:900px; margin-left:auto; margin-right:auto; margin-top:0px; margin-bottom:10px }
+.forumallpages li { display:inline; color:#0082CB}
+.forumallpages li a:link { color:#0082CB}
+.forumallpages li a:visited { color:#0082CB}
+.forumallpages li a:hover { color:#0082CB}
+.forumallpages li.thisclass a:link {text-align:center;font-weight:bold;padding-top:5px; width:25px;height:25px;color:#FFFFFF;background-color:#2EADF1;border:1px solid #9EC7E4; }
+.forumallpages li a {text-align:center;font-weight:bold;margin-left:5px;margin-right:5px;padding-left:8px;padding-right:7px;padding-top:5px; padding-bottom:3px;width:25px;height:25px;color:#0082CB;background-color:#FFFFFF;border:1px solid #64B6CF;}
+.Nxad        { width: 950px; text-align: center; margin-left: auto; margin-right: auto; 
+               padding-bottom: 15px }
+.Nsx          { width: 950px; text-align: center; line-height: 28px; 
+               margin-left: auto; margin-right: auto; background-color: 
+               #F1FAFC; margin-top:6px; margin-bottom:10px; font-size:10.5pt; color:#808080; font-weight:bold }
+.Nsx a:link { color:#F37E00; font-size:10.5pt}
+.Nsx a:visited { color:#F37E00; font-size:10.5pt}
+.Nsx a:hover { color:#0082CB; font-size:10.5pt}
+.Ntpic     { width: 930px; height: 27px; text-align: left; padding-right: 20px; 
+               padding-top: 15px; background-image: url('images/Newstitlebg.gif'); text-indent:20px; font-size:10.5pt; color:#0082CB; font-weight:bold }
