@@ -5,10 +5,18 @@ from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 from config import Config
 from contextlib import closing
+
+from sqlalchemy import Column, String, create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+from flask_sqlalchemy import SQLAlchemy
+
 import views
 
-	 
+
 app = Flask(__name__)
+db = SQLAlchemy(app)
+
 app.config.from_object(Config)
 
 print(app.config)
@@ -17,7 +25,7 @@ def connect_db():
     print(os.path.abspath(app.config['DATABASE']))
     return sqlite3.connect(app.config['DATABASE'])
 
-	
+
 def init_db():
     with closing(connect_db()) as db:
         with app.open_resource('schema.sql') as f:
@@ -32,9 +40,18 @@ def before_request():
 @app.teardown_request
 def teardown_request(exception):
     g.db.close()
-    
-    
+
+
 app.add_url_rule('/index/',view_func=views.index)
-    
+app.add_url_rule('/ent/',view_func=views.ent)
+app.add_url_rule('/',view_func=views.index)
+
+from picMan import picMan as picMan_blueprint
+#注册blueprint到一级路由
+#app.register_blueprint(picMan_blueprint)
+
+#注册blueprint 到二级路由
+app.register_blueprint(picMan_blueprint,url_prefix="/picman")
+
 if __name__ == '__main__':
     app.run()
