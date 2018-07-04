@@ -1,10 +1,10 @@
-{% extends "base.html"  %}
+{% extends "picman/base.html"  %}
 {%block body%}
 	<form action="../picman/AddCate" method="post">
 	<span>title</span><input type="text" name="title" value="{{title}}"/>
 	<span>text</span><input type="text" name="text"/>
 	<span>picpath</span><input type="text" name="picpath" value=""/>
 	<input type="submit" name="Submit" value="Add Category">
-	</form>	
-	
+	</form>
+
 {%endblock%}

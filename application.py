@@ -7,19 +7,25 @@ from config import Config
 from contextlib import closing
 
 from sqlalchemy import Column, String, create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from flask_sqlalchemy import SQLAlchemy
 
+from database import db_session
+
 import views
 
-
 app = Flask(__name__)
-db = SQLAlchemy(app)
 
 app.config.from_object(Config)
 
 print(app.config)
+
+
+@app.teardown_request
+def shutdown_session(exception=None):
+    print("on app teardown_request, showdown sqlite session....")
+    db_session.remove()
 
 def connect_db():
     print(os.path.abspath(app.config['DATABASE']))

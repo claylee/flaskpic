@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
 from database import Base
 
-class category(Base):
+class piccategory(Base):
     __tablename__ = 'piccategory'
     pcateid = Column(Integer, primary_key=True)
 
@@ -13,8 +13,14 @@ class category(Base):
     categorypath = Column(String(120))
 
     def __init__(self):
+        print("-----base------")
+        print(Base)
         pass
 
 
     def __repr__(self):
         return '<piccategory %r>' % (self.title)
+
+    def testBase(self):
+        print("-----base------")
+        print(Base)

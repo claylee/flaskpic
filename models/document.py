@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
 from database import Base
 
-class document(Base):
+class picdocument(Base):
     __tablename__ = 'picdocument'
     pdocid = Column(Integer, primary_key=True)
 

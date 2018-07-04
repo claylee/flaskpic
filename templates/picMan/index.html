@@ -1,24 +1,24 @@
 {% extends "picman/base.html"  %}
 {%block body%}
+<a class="btn btn-primary" href="AddCate">添加</a>
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Text</th>
+      <th scope="col">Path</th>
     </tr>
   </thead>
   <tbody>
 	{% for l in cate %}
     <tr>
-      <th scope="row">{{l[0]}}</th>
-      <td>{{l[1]}}</td>
-      <td>{{l[2]}}</td>
-      <td>{{l[3]}}</td>
+      <th scope="row">{{l.pcateid}}</th>
+      <td>{{l.title}}</td>
+      <td>{{l.text}}</td>
+      <td>{{l.categorypath}}</td>
     </tr>
 	{%endfor%}
   </tbody>
 </table>
-	
 {%endblock%}
