@@ -1,0 +1,29 @@
+{% extends "picman/base.html"  %}
+{%block body%}
+<a class="btn btn-primary" href="AddCate">添加</a>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">分类Title</th>
+      <th scope="col">Title</th>
+      <th scope="col">Text</th>
+      <th scope="col">Path</th>
+      <th scope="col">Path</th>
+      <th scope="col">查看</th>
+    </tr>
+  </thead>
+  <tbody>
+	{% for l in docList %}
+    <tr>
+      <th scope="row">{{l.pcateid}}</th>
+      <td>{{l.cate}}</td>
+      <td>{{l.title}}</td>
+      <td>{{l.text}}</td>
+      <td>{{l.categorypath}}</td>
+      <td><a class="btn btn-default" href="picView"</td>
+    </tr>
+	{%endfor%}
+  </tbody>
+</table>
+{%endblock%}
