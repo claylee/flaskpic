@@ -7,13 +7,11 @@ from database import Base
 class picdocument(Base):
     __tablename__ = 'picdocument'
     pdocid = Column(Integer, primary_key=True)
+    pcateid = Column(Integer)
 
     title = Column(String(80), unique=True)
-    text = Column(String(120))
+    tags = Column(String(120))
     docpath = Column(String(120))
-    picno = Column(Integer)
-    picname = Column(String(120))
-    picmid = Column(Integer)
 
     def __init__(self):
         pass

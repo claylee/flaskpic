@@ -10,6 +10,7 @@ from sqlalchemy import Column, String, create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from flask_sqlalchemy import SQLAlchemy
+from pprint import pprint
 
 from database import db_session
 
@@ -19,23 +20,23 @@ app = Flask(__name__)
 
 app.config.from_object(Config)
 
-print(app.config)
+pprint(app.config)
 
 
 @app.teardown_request
 def shutdown_session(exception=None):
-    print("on app teardown_request, showdown sqlite session....")
+    pprint("on app teardown_request, showdown sqlite session....")
     db_session.remove()
 
 def connect_db():
-    print(os.path.abspath(app.config['DATABASE']))
+    pprint(os.path.abspath(app.config['DATABASE']))
     return sqlite3.connect(app.config['DATABASE'])
 
 
 def init_db():
     with closing(connect_db()) as db:
         with app.open_resource('schema.sql') as f:
-            print(f.read())
+            pprint(f.read())
             db.cursor().executescript(f.read().decode('utf-8'))
         db.commit()
 

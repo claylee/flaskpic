@@ -3,6 +3,10 @@ from . import picMan
 from .picTree import picTree
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
+from models import document, category, picfile
+from database import db_session
+piccategory = category.piccategory
+picdocument = document.picdocument
 
 @picMan.route("/",methods=["GET","POST"])
 def index():
@@ -20,3 +24,9 @@ def addCategory(title=None,name=None,picpath=None):
         pictree.AddCategory(form["title"],form["text"],form["picpath"])
         return redirect(url_for("picMan.index"))
     return render_template("picman/pictree.html")
+
+@picMan.route("/documentList",methods=["GET"])
+def documentList(docid=-1):
+    doc = picdocument()
+    return render_template("picman/docList.html", \
+        docList= doc.query.filter(picdocument.pdocid == docid))
