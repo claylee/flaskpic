@@ -11,7 +11,7 @@ picdocument = document.picdocument
 @picMan.route("/",methods=["GET","POST"])
 def index():
     pictree = picTree()
-    return render_template("picman/index.html",cate=pictree.GetCategory())
+    return render_template("picMan/index.html",cate=pictree.GetCategory())
 
 @picMan.route("/AddCate",methods=["GET","POST"])
 def addCategory(title=None,name=None,picpath=None):
@@ -23,10 +23,10 @@ def addCategory(title=None,name=None,picpath=None):
         print(form["title"],form["text"],form["picpath"])
         pictree.AddCategory(form["title"],form["text"],form["picpath"])
         return redirect(url_for("picMan.index"))
-    return render_template("picman/pictree.html")
+    return render_template("picMan/pictree.html")
 
 @picMan.route("/documentList",methods=["GET"])
 def documentList(docid=-1):
     doc = picdocument()
-    return render_template("picman/docList.html", \
+    return render_template("picMan/docList.html", \
         docList= doc.query.filter(picdocument.pdocid == docid))

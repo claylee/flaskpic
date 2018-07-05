@@ -61,4 +61,4 @@ from picMan import picMan as picMan_blueprint
 app.register_blueprint(picMan_blueprint,url_prefix="/picman")
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0',port=5000,debug=True)
