@@ -14,5 +14,5 @@ def init_db():
     # 在 metadata 中注册。否则，您将不得不在第一次执行 init_db() 时
     # 先导入他们。
     from models import category,document,picfile
-    print(category)
+    #print(category)
     Base.metadata.create_all(bind=engine)

@@ -25,11 +25,11 @@ pprint(app.config)
 
 @app.teardown_request
 def shutdown_session(exception=None):
-    pprint("on app teardown_request, showdown sqlite session....")
+    #pprint("on app teardown_request, showdown sqlite session....")
     db_session.remove()
 
 def connect_db():
-    pprint(os.path.abspath(app.config['DATABASE']))
+    #pprint(os.path.abspath(app.config['DATABASE']))
     return sqlite3.connect(app.config['DATABASE'])
 
 
@@ -54,11 +54,13 @@ app.add_url_rule('/ent/',view_func=views.ent)
 app.add_url_rule('/',view_func=views.index)
 
 from picMan import picMan as picMan_blueprint
+from rasterviewer import rasterviewer as rasterviewer_blueprint
 #注册blueprint到一级路由
 #app.register_blueprint(picMan_blueprint)
 
 #注册blueprint 到二级路由
 app.register_blueprint(picMan_blueprint,url_prefix="/picman")
+app.register_blueprint(rasterviewer_blueprint,url_prefix="/rasterviewer")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000,debug=True)
