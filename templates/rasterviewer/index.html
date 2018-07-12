@@ -1,0 +1,17 @@
+{% extends "rasterviewer/base.html"  %}
+{%block body%}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      {% for n in rasterNames %}
+        <a><img width='32px' style="margin:1px"  class="border border-primary" src='readThumb/{{n}}/Image/32'></a>
+      {% endfor %}
+    </div>
+    <div class="col">
+      {% for n in rasterNames %}
+        <a><img width='32px' style="margin: 1px" class="border border-warning" src='readThumb/{{n}}/Label/32'></a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{%endblock%}
