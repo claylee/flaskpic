@@ -52,6 +52,7 @@ def teardown_request(exception):
 app.add_url_rule('/index/',view_func=views.index)
 app.add_url_rule('/ent/',view_func=views.ent)
 app.add_url_rule('/',view_func=views.index)
+app.add_url_rule('/tes/<test>',view_func=views.testImage)
 
 from picMan import picMan as picMan_blueprint
 from rasterviewer import rasterviewer as rasterviewer_blueprint

@@ -23,8 +23,7 @@ class picTree:
         return list
 
     def GetCategory(self,cate=None, size=20, num=0):
-        cate = piccategory()
-        cates = cate.query.all()
+        cates = piccategory.query.all()
         return cates
 
     def connect_db(self):

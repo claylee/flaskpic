@@ -9,6 +9,7 @@ piccategory = category.piccategory
 picdocument = document.picdocument
 
 @picMan.route("/",methods=["GET","POST"])
+@picMan.route("/index/",methods=["GET","POST"])
 def index():
     pictree = picTree()
     return render_template("picMan/index.html",cate=pictree.GetCategory())
