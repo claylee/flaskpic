@@ -5,6 +5,7 @@ from flask import current_app
 from models import document, category
 from database import db_session
 piccategory = category.piccategory
+picdocument = document.picdocument
 
 class picTree:
 
@@ -45,3 +46,9 @@ class picTree:
         print(title,text,picpath)
         c.close()
         conn.close()
+
+    def AddDocument(self,title=None, text=None, docPath=None):
+        conn = self.connect_db()
+        doc = picdocument()
+        db_session.add(doc)
+        db_session.commit()
