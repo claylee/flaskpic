@@ -56,12 +56,14 @@ app.add_url_rule('/tes/<test>',view_func=views.testImage)
 
 from picMan import picMan as picMan_blueprint
 from rasterviewer import rasterviewer as rasterviewer_blueprint
+from picview import picview as picview_blueprint
 #注册blueprint到一级路由
 #app.register_blueprint(picMan_blueprint)
 
 #注册blueprint 到二级路由
 app.register_blueprint(picMan_blueprint,url_prefix="/picman")
 app.register_blueprint(rasterviewer_blueprint,url_prefix="/rasterviewer")
+app.register_blueprint(picview_blueprint,url_prefix="/picview")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000,debug=True)
