@@ -1,0 +1,32 @@
+{% extends "picMan/base.html"  %}
+{%block body%}
+<div class="row">
+  <div class="col">
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-header">添加Document信息</div>
+      <div class="card-body">
+        <form action="../../picman/AddDocument/{{pcateid}}" method="post">
+          <input type="hidden" value="{{pcateid}}">
+          <div class="form-group">
+            <label for="exampleInputPassword1">title</label>
+            <input type="" class="form-control" id="exampleInputPassword1"  name="title" value="{{title}}" placeholder="title">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">text</label>
+            <input type="" class="form-control" id="exampleInputPassword1"  name="text" value="{{text}}" placeholder="text">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">picpath</label>
+            <input type="" class="form-control" id="exampleInputPassword1"  name="picpath" value="{{picpath}}" placeholder="picpath">
+          </div>
+          <input type="submit" name="Submit" class="btn btn-primary" value="Add Document">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+</div>
+{%endblock%}

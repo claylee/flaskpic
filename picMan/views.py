@@ -25,20 +25,21 @@ def addCategory(title=None,name=None,picpath=None):
         return redirect(url_for("picMan.index"))
     return render_template("picMan/pictree.html")
 
-@picMan.route("/documentList",methods=["GET"])
-def documentList(docid=-1):
+@picMan.route("/documentList/<cateid>",methods=["GET"])
+def documentList(cateid=-1):
     doc = picdocument()
+    print(cateid)
     return render_template("picMan/docList.html", \
-        docList= doc.query.filter(picdocument.pdocid == docid))
+         pid = cateid, docList = doc.query.filter(picdocument.pcateid == cateid) )
 
-@picMan.route("/AddDocument",methods=["GET","POST"])
-def AddDocument(title=None,text=None,picpath=None):
+@picMan.route("/AddDocument/<pcateid>",methods=["GET","POST"])
+def AddDocument(pcateid,title=None,text=None,picpath=None):
     form = request.form
     pictree = picTree()
-    pictree.AddDocument(title,text,picpath)
     if("title" in form):
         pictree = picTree()
         print(form["title"],form["text"],form["picpath"])
-        pictree.AddCategory(form["title"],form["text"],form["picpath"])
-        return redirect(url_for("picMan.docList"))
-    return render_template("picMan/AddDocument.html")
+        pictree.AddDocument(pcateid,form["title"],form["text"],form["picpath"])
+        #pictree.AddCategory(form["title"],form["text"],form["picpath"])
+        return redirect(url_for("picMan.documentList",cateid=pcateid))
+    return render_template("picMan/AddDocument.html",pcateid=pcateid)

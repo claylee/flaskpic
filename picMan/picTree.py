@@ -47,8 +47,12 @@ class picTree:
         c.close()
         conn.close()
 
-    def AddDocument(self,title=None, text=None, docPath=None):
+    def AddDocument(self,cateid, title=None, text=None, docPath=None):
         conn = self.connect_db()
         doc = picdocument()
+        doc.pcateid = cateid
+        doc.title = title
+        doc.tags = text
+        doc.docpath = docPath
         db_session.add(doc)
         db_session.commit()

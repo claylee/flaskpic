@@ -1,6 +1,6 @@
 {% extends "picMan/base.html"  %}
 {%block body%}
-<a class="btn btn-primary" href="AddDocument">添加Document</a>
+<a class="btn btn-primary" href="../../picman/AddDocument/{{pid}}">添加Document</a>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -8,7 +8,6 @@
       <th scope="col">分类Title</th>
       <th scope="col">Title</th>
       <th scope="col">Text</th>
-      <th scope="col">Path</th>
       <th scope="col">Path</th>
       <th scope="col">查看</th>
     </tr>
@@ -19,8 +18,8 @@
       <th scope="row">{{l.pcateid}}</th>
       <td>{{l.cate}}</td>
       <td>{{l.title}}</td>
-      <td>{{l.text}}</td>
-      <td>{{l.categorypath}}</td>
+      <td>{{l.tags}}</td>
+      <td>{{l.docpath}}</td>
       <td><a class="btn btn-default" href="picView"</td>
     </tr>
 	{%endfor%}
