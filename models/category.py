@@ -2,9 +2,9 @@ import os
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
-from database import Base
+from database import db
 
-class piccategory(Base):
+class piccategory(db.Model):
     __tablename__ = 'piccategory'
     pcateid = Column(Integer, primary_key=True)
 
@@ -12,9 +12,10 @@ class piccategory(Base):
     text = Column(String(120))
     categorypath = Column(String(120))
 
+
     def __init__(self):
         print("-----base------")
-        print(Base)
+        #print(Base)
         pass
 
 

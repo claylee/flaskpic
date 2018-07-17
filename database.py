@@ -1,7 +1,20 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+#from sqlalchemy import create_engine
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from config import Config
+#from sqlalchemy.orm import scoped_session, sessionmaker
+#from sqlalchemy.ext.declarative import declarative_base
 
+#app.config['DATABASE'] = 'sqlite:////tmp/test.db'
+
+#print("flask-sqlalchemy database url :",app.config['DATABASE'])
+#print("flask-sqlalchemy database url :",app.config['SQLALCHEMY_DATABASE_URI'])
+
+db = SQLAlchemy()
+db_session = db.session
+
+'''
+# this block is SQLAlchemy API
 engine = create_engine('sqlite:///tmp/flaskr.db', convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
@@ -16,3 +29,10 @@ def init_db():
     from models import category,document,picfile
     #print(category)
     Base.metadata.create_all(bind=engine)
+'''
+
+# below this is Flask-SQLAlchemy
+
+def init_db():
+    from models import category,document,picfile
+    db.create_all()

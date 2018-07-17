@@ -12,21 +12,24 @@ from sqlalchemy.ext.declarative import declarative_base
 from flask_sqlalchemy import SQLAlchemy
 from pprint import pprint
 
-from database import db_session
-
 import views
 
 app = Flask(__name__)
 
 app.config.from_object(Config)
-
 pprint(app.config)
+
+from database import db_session,db
+
+db.init_app(app)
 
 
 @app.teardown_request
 def shutdown_session(exception=None):
-    #pprint("on app teardown_request, showdown sqlite session....")
-    db_session.remove()
+    #flask-don’t have to remove it at the end of the request,
+    #Flask-SQLAlchemy does that for you
+    #db_session.remove()
+    pass
 
 def connect_db():
     #pprint(os.path.abspath(app.config['DATABASE']))

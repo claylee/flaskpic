@@ -1,19 +1,36 @@
 {% extends "picview/base.html"  %}
 {%block body%}
+	<div>
 	{% for l in docs %}
-    {% if (loop.index-1) % 3 == 0 %}
+    {% if (loop.index-1) % 4 == 0 %}
       <div class="row">
     {% endif %}
       <div class="col col-lg-3">
         <div class="card">
+					<img class="card-img-top" width="" src="../../picview/img/{{fileid}}" />
           <div class="card-body">
-            <img width="46px" src="../../picview/img/{{fileid}}" />
-          </div>
-          <div class="card-footer">思思</div>
+						<a class="card-link" href="/picview/files">思思</a>
+					</div>
         </div>
       </div>
-    {%- if loop.index% 3 == 0 %}
+    {%- if loop.index% 4 == 0 %}
       </div>
     {% endif %}
 	{%endfor%}
+	</div>
+	<nav aria-label="document list paging">
+		<ul class="pagination">
+			<li class="page-item">
+				<a class="page-link" href="#" tabindex="-1">上一页</a></li>
+			{%for i in range(pages)%}
+			<li class="page-item">
+				<a class="page-link" href="/picview/docs/1/{{i+1}}">{{i+1}}</a>
+			</li>
+			{% endfor %}
+
+			<li class="page-item">
+				<a class="page-link" href="#" tabindex="-1">下一页</a>
+			</li>
+		</ul>
+	</nav>
 {%endblock%}

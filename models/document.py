@@ -2,9 +2,9 @@ import os
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
-from database import Base
+from database import db
 
-class picdocument(Base):
+class picdocument(db.Model):
     __tablename__ = 'picdocument'
     pdocid = Column(Integer, primary_key=True)
     pcateid = Column(Integer)
@@ -13,8 +13,10 @@ class picdocument(Base):
     tags = Column(String(120))
     docpath = Column(String(120))
 
+
     def __init__(self):
         pass
+
 
     def __repr__(self):
         return '<title %r>' % (self.title)
