@@ -10,8 +10,8 @@ class picdocument(db.Model):
     pcateid = Column(Integer)
 
     title = Column(String(80), unique=True)
-    tags = Column(String(120))
     docpath = Column(String(120))
+    tags = Column(String(120))
 
 
     def __init__(self):

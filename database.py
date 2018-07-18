@@ -34,5 +34,19 @@ def init_db():
 # below this is Flask-SQLAlchemy
 
 def init_db():
+    print("init db ")
     from models import category,document,picfile
+    #from application import appc
+
+    app = Flask(__name__)
+
+    app.config.from_object(Config)
+    #db.init_app(app)
+
+    print(app.app_context())
+    app.app_context().push()
+    with app.app_context():
+        print("-------------------------")
+        db.init_app(app)
+    print(app)
     db.create_all()

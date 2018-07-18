@@ -10,8 +10,11 @@ class picfile(db.Model):
     pdocid = Column(Integer)
     fileno = Column(Integer)
 
+    pictitle = Column(String(120))
     md5code = Column(String(120))
+    picurl = Column(String(120))
     fpath = Column(String(120))
+    tags = Column(String(120))
 
 
     #for flask-sqlalchemy reason , 不实现init

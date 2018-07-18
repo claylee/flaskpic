@@ -15,10 +15,11 @@ from pprint import pprint
 import views
 
 app = Flask(__name__)
+appc = app
 
 app.config.from_object(Config)
 pprint(app.config)
-
+print("test app import")
 from database import db_session,db
 
 db.init_app(app)

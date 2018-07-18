@@ -15,8 +15,8 @@
   <tbody>
 	{% for l in docList %}
     <tr>
-      <th scope="row">{{l.pcateid}}</th>
-      <td>{{l.cate}}</td>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{l.pcateid}}</td>
       <td>{{l.title}}</td>
       <td>{{l.tags}}</td>
       <td>{{l.docpath}}</td>

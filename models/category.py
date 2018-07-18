@@ -10,7 +10,10 @@ class piccategory(db.Model):
 
     title = Column(String(80), unique=True)
     text = Column(String(120))
-    categorypath = Column(String(120))
+    categoryno = Column(String(120))
+    categoryname = Column(String(120))
+    categoryurl = Column(String(120))
+    tags = Column(String(120))
 
 
     def __init__(self):
