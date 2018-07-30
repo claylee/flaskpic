@@ -8,3 +8,5 @@ class Config(object):
 	PASSWORD = 'default'
 	SQLALCHEMY_TRACK_MODIFICATIONS = True
 	SQLALCHEMY_DATABASE_URI = 'sqlite:///tmp/flaskr.db'
+	RASTERDB = [{'path':'D:/ImageSplite/tiffdata/LabelRnd','name':'高淳土地利用影像'},\
+	{'path':'','name':''}]

@@ -1,15 +1,34 @@
 {% extends "rasterviewer/base.html"  %}
 {%block body%}
+<style>
+  .errorLabel
+  {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+  }
+</style>
 <div class="container">
   <div class="row">
     <div class="col">
       {% for n in rasterNames %}
-        <a href="imagepair/{{n}}/Image" target="_blank"><img width='32px' style="margin:1px"  class="border border-primary" src='readThumb/{{n}}/Image/32'></a>
+      {% set errTag = '' %}
+      {% set errTagB = 'border:2px solid #e1e1e1' %}
+        <a href="pickerror/{{n}}/Image" class="" target="_blank">
+          <span class="errorLabel" style="background:url('readThumb/{{n}}/Image/32')">
+            {% if n in errorList %}
+              {% set errTag = 'border border-danger' %}
+              {% set errTagB = 'border:2px solid #e13344' %}
+              <span class="badge badge-danger" Width="48px">错误</span>
+            {% endif %}
+          </span>
+        </a>
       {% endfor %}
     </div>
     <div class="col">
       {% for n in rasterNames %}
-        <a href="imagepair/{{n}}/Label" target="_blank"><img width='32px' style="margin: 1px" class="border border-warning" src='readThumb/{{n}}/Label/32'></a>
+        <a href="pickerror/{{n}}/Label" target="_blank">
+          <img width='32px' style="margin: 1px" class="border-warning border-top-2" title="{{n}}" src='readThumb/{{n}}/Label/32'></a>
       {% endfor %}
     </div>
   </div>
