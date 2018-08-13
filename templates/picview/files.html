@@ -9,12 +9,12 @@
 	{%endfor%}
 	</div>
 	<script>
+		$("#basicExample").justifiedGallery({
+			rowHeight:220,
+			lastRow : 'nojustify',
+			margins : 3
+		});
 		$(function(){
-			$("#basicExample").justifiedGallery({
-				rowHeight:220,
-				lastRow : 'nojustify',
-				margins : 3
-			});
 		});
 	</script>
 {%endblock%}
