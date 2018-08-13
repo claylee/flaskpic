@@ -1,0 +1,29 @@
+{% extends "picview/base.html"  %}
+{%block body%}
+	<script type="text/javascript">
+		//$("#fileGallery").justifiedGallery();
+	</script>
+	<div id="fileGallery">
+	<button id="justified">click justify<button>
+	{% for l in files %}
+	<img src="{{l.picurl}}"  title="dd"/>
+
+	{%endfor%}
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#justified").click(function(){
+				$("#fileGallery").justifiedGallery({
+				    rowHeight : 70,
+				    lastRow : 'nojustify',
+				    margins : 3
+				});
+			});
+			$("#fileGallery").justifiedGallery({
+					rowHeight : 70,
+					lastRow : 'nojustify',
+					margins : 3
+			});
+		})
+	</script>
+{%endblock%}
