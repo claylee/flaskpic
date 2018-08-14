@@ -44,5 +44,6 @@ def fullview(docName = None, fid = 0):
 @picview.route("/docCover/<docname>/",methods=["GET","POST"])
 def docCover(docname = None):
     pics = picfile.query.filter(picfile.pictitle == docname).all()
-
+    if len(pics) == 0:
+        return None
     return pics[len(pics)-1].picurl
