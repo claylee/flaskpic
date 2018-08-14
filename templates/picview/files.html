@@ -5,7 +5,7 @@
 	<script src="../../../static/JustifiedGallery/jquery.justifiedGallery.js"></script>
 	<div id="basicExample" class="">
 	{% for l in files %}
-        <a target="_blank" href="{{l.picurl}}"><img width="128px" src="{{l.picurl}}"/></a>
+        <a target="_blank" href="/picview/fullview/{{l.pictitle}}/{{l.id}}"><img width="128px" src="{{l.picurl}}"/></a>
 	{%endfor%}
 	</div>
 	<script>

@@ -35,6 +35,12 @@ def files(docName = None, page = 0, pagesize = 5):
     filelist = picfile.query.filter(picfile.pictitle == docName).all()
     return render_template("/picview/files.html",files = filelist)
 
+@picview.route("/fullview/",methods=["GET","POST"])
+@picview.route("/fullview/<docName>/<fid>",methods=["GET","POST"])
+def fullview(docName = None, fid = 0):
+    filelist = picfile.query.filter(picfile.pictitle == docName).all()
+    return render_template("/picview/fullview.html",files = filelist)
+
 @picview.route("/docCover/<docname>/",methods=["GET","POST"])
 def docCover(docname = None):
     pics = picfile.query.filter(picfile.pictitle == docname).all()
