@@ -1,0 +1,93 @@
+{% extends "picview/base.html"  %}
+{%block body%}
+<style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+    .gallery-top {
+      height: 85%;
+      width: 100%;
+    }
+    .gallery-thumbs {
+      height: 15%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+    .gallery-thumbs .swiper-slide {
+      width: 54px;
+      height: 100%;
+      opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-active {
+      opacity: 1;
+    }
+
+  </style>
+<div class="h-60 swiper-container gallery-top swiper-container-horizontal bg-dark">
+  <div class="h-100 swiper-wrapper">
+  {% for l in files %}
+    {% if loop.index == 1 %}
+      <div class="swiper-slide swiper-slide-active" style="background: url('{{l.picurl}}') no-repeat center center">
+
+      </div>
+    {% else %}
+      <div class="swiper-slide" style="background: url('{{l.picurl}}') no-repeat center center">
+      </div>
+    {% endif %}
+  {%endfor%}
+
+  </div>
+  <div class="swiper-button-next swiper-button-white" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
+  <div class="swiper-button-prev swiper-button-white swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
+
+</div>
+<div class="swiper-container gallery-thumbs swiper-container-horizontal">
+  <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(510.75px, 0px, 0px);">
+    {% for l in files %}
+      {% if loop.index == 1 %}
+        <img class="swiper-slide swiper-slide-active" style="margin-right: 10px;" src="{{l.picurl}}">
+      {% else %}
+        <img class="swiper-slide" style="margin-right: 10px;" src="{{l.picurl}}">
+      {% endif %}
+    {%endfor%}
+  </div>
+</div>
+<script>
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      touchRatio: 0.2,
+      slideToClickedSlide: true,
+    });
+    galleryTop.controller.control = galleryThumbs;
+    galleryThumbs.controller.control = galleryTop;
+
+  </script>
+{%endblock%}

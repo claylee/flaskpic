@@ -1,0 +1,85 @@
+{% extends "rasterviewer/base.html"  %}
+{%block body%}
+
+<div class="clearfix" role="toolbar" aria-label="Toolbar with button groups">
+  <div id="BtnGroupDisplay" class="btn-group float-left" role="group" aria-label="First group">
+    <button type="button" class="btn btn-secondary" aria-tog="imSpread">分开展示</button>
+    <button type="button" class="btn btn-secondary" aria-tog="imSolved" >融合展示</button>
+  </div>
+
+  <div id="BtnGroupError" class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+    {% if errors == True %}
+      {% set alm = '' %}
+      {% set almError = 'active' %}
+    {% else %}
+      {% set alm = 'active' %}
+      {% set almError = '' %}
+    {% endif %}
+    <span class="badge badge-light">errors:{{errors}}</span>
+    <span class="badge badge-light">val:{{errors == True}}</span>
+    <span class="badge badge-light">alm:{{alm}}|error:{{almError}}</span>
+      <label class="btn btn-outline-primary {{alm}}" id="labeloption1">
+        <input type="radio" name="options" id="option1" autocomplete="off"> 正常匹配
+      </label>
+      <label class="btn btn-outline-danger {{almError}}" id="labeloption2">
+        <input type="radio" name="options" id="option2" autocomplete="off"> 标签错误
+      </label>
+  </div>
+</div>
+<div class="" style="">
+  <input id="imgName" type="hidden" value="{{name}}"/>
+  <div id="imSpread" class="row imgToggle">
+    <div class="col">
+      <div class="card" style="">
+        <h5 class="card-header">输入影像</h5>
+        <img class="card-img-top" src="../../readRasterImage/{{name}}/Image"/>
+        <div class="card-body">
+          <h5 class="card-title">{{name}}.jpg</h5>
+          <p class="card-text">输入影像</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="">
+        <h5 class="card-header">标签影像</h5>
+        <img class="card-img-top" src="../../readRasterImage/{{name}}/Label"/>
+        <div class="card-body">
+          <h5 class="card-title">{{name}}.png</h5>
+          <p class="card-text">标签影像</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row imgToggle" id="imSolved">
+    <div class="col col-lg-6">
+      <div class="card" style="">
+        <h5 class="card-header">融合影像</h5>
+        <img src="/rasterviewer/imageMask/{{name}}/2"/>
+        <div class="card-body">
+          <h5 class="card-title">{{name}}.png</h5>
+          <p class="card-text">融合影像</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    var imgName = $("#imgName").val();
+    $("#imSolved").hide();
+    $("#BtnGroupDisplay>button").click(function(e){
+      var displayDiv = $(this).attr("aria-tog");
+      $(".imgToggle").hide();
+      $("#"+displayDiv).show();
+    });
+    $("#BtnGroupError #labeloption1").click(function(e){
+        $.get("../../../rasterviewer/untipError/{{name}}",function(e){
+        });
+    });
+    $("#BtnGroupError #labeloption2").click(function(e){
+        $.get("../../../rasterviewer/tipError/{{name}}",function(e){
+        });
+    });
+  });
+</script>
+{%endblock%}

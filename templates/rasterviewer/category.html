@@ -1,0 +1,6 @@
+{% extends "rasterviewer/base.html"  %}
+{%block body%}
+  {%for db in cateList%}
+    <a href="#"><span>{{db.name}}</span></a><br/>
+  {% endfor %}
+{% endblock%}

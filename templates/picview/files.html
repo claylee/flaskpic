@@ -1,0 +1,20 @@
+{% extends "picview/base.html"  %}
+{%block body%}
+
+	<script src="../../../static/JustifiedGallery/JustifiedGallery.js"></script>
+	<script src="../../../static/JustifiedGallery/jquery.justifiedGallery.js"></script>
+	<div id="basicExample" class="">
+	{% for l in files %}
+        <a href="/picview/fullview/{{l.pictitle}}/{{l.id}}"><img width="128px" src="{{l.picurl}}"/></a>
+	{%endfor%}
+	</div>
+	<script>
+		$("#basicExample").justifiedGallery({
+			rowHeight:220,
+			lastRow : 'nojustify',
+			margins : 3
+		});
+		$(function(){
+		});
+	</script>
+{%endblock%}
