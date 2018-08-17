@@ -64,9 +64,11 @@
   <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(510.75px, 0px, 0px);">
     {% for l in files %}
       {% if loop.index == 1 %}
-        <img class="swiper-slide swiper-slide-active" style="margin-right: 10px;" src="{{l.picurl}}">
+        <div class="swiper-slide" style="margin-right: 10px;background: url('{{l.picurl}}') no-repeat center center">
+        </div>
       {% else %}
-        <img class="swiper-slide" style="margin-right: 10px;" src="{{l.picurl}}">
+        <div class="swiper-slide" style="margin-right: 10px;background: url('{{l.picurl}}') no-repeat center center">
+        </div>
       {% endif %}
     {%endfor%}
   </div>

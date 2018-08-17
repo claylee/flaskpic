@@ -31,6 +31,49 @@ class imageShow(object):
         img = Image.blend(img_blender, img, factor)
         return img
 
+    def ImageCombinThumb(imagePath,rtype,imageNames):
+        if not os.path.exists(imagePath):
+            return
+        imagePath = os.path.join(imagePath,rtype)
+        #filenames = os.listdir(imagePath) # 只查询图片格式
+        #print(len(filenames))
+        #filenames = os.listdir(imagePath) # 只查询图片格式
+        #print(len(filenames))
+        cols = int(12)
+        rows =  int(len(imageNames) / cols + 1);
+        print(imageNames)
+        print(cols, rows)
+
+        thumbsize = int(32)
+        marginGaps =  int(4)
+        thumbCombinsWidth = (thumbsize + marginGaps) * cols + marginGaps;
+        thumbCombinsHeight = (thumbsize + marginGaps) * rows + marginGaps;
+
+        newImage = Image.new('RGB',(int(thumbCombinsWidth),int(thumbCombinsHeight)),'white')
+        i =0
+        j=0
+        for i in range(rows):
+            for j in range(cols):
+                if (i * cols + j) == len(imageNames):
+                    break
+                f = imageNames[ i * cols + j]
+
+                if rtype == "Image":
+                    f = f + ".jpg"
+                else:
+                    f = "Label_" + f + ".png"
+                fname = os.path.join(imagePath,f)
+                # left, top, right, bottom
+                box = ( j * (thumbsize) + (j+1) * marginGaps,\
+                    i * (thumbsize) + (i+1) * marginGaps,\
+                    (j+1) * (thumbsize+marginGaps),\
+                    (i+1) * (thumbsize+marginGaps))
+                with Image.open(fname) as imgFile:
+                    imgFile = imgFile.resize((32, 32))
+                    newImage.paste(imgFile,box)
+        newImage.save("d:/thumbcoom.png")
+        return "d:/thumbcoom.png"
+
     def ImageMaskLabel(imagePath, labelPath, saveImagePath=None,tunel=0):
         image = Image.open(imagePath)
         label = Image.open(labelPath)
