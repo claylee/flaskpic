@@ -129,3 +129,14 @@ def getRasterNames():
 def rasterdb():
     dbList = app.config["RASTERDB"]
     return render_template("/rasterviewer/category.html",cateList = dbList)
+
+@rasterviewer.route('/thumbCombin/')
+@rasterviewer.route('/thumbCombin/<rtype>')
+def rasterThumbCombin(rtype="Image"):
+    rasterRoot="D:/ImageSplite/tiffdata/LabelRnd/"
+    imageNames = getRasterNames()
+    imagePath = imgShow.ImageCombinThumb(rasterRoot,rtype,imageNames)
+    image = open(imagePath, "rb").read()
+    response = make_response(image)
+    response.headers['Content-Type'] = 'image/jpeg'
+    return response
