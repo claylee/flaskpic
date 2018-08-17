@@ -12,10 +12,12 @@
   <div class="row">
     <div class="col">
       {% for n in rasterNames %}
+      {% set left = 32*((loop.index-1) % 12)+((loop.index-1)%12+1)*4 %}
+      {% set top = 32*(loop.index//13)+((loop.index//13+1))*4 %}
       {% set errTag = '' %}
       {% set errTagB = 'border:2px solid #e1e1e1' %}
         <a href="pickerror/{{n}}/Image" class="" target="_blank">
-          <span class="errorLabel" style="background:url('readThumb/{{n}}/Image/32')">
+          <span class="errorLabel" style="background:url('thumbCombin/'); background-position:{{left}} {{top}}">
             {% if n in errorList %}
               {% set errTag = 'border border-danger' %}
               {% set errTagB = 'border:2px solid #e13344' %}
@@ -26,12 +28,7 @@
       {% endfor %}
     </div>
     <div class="col">
-      {% for n in rasterNames %}
-        <a href="pickerror/{{n}}/Label" target="_blank">
-          <img width='32px' style="margin: 1px" class="border-warning border-top-2" title="{{n}}" src='readThumb/{{n}}/Label/32'></a>
-      {% endfor %}
     </div>
-    <img src="thumbCombin/">
   </div>
 </div>
 {%endblock%}
