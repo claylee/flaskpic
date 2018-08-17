@@ -10,18 +10,20 @@
 </style>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col" style="width:474px">
       {% for n in rasterNames %}
       {% set left = 32*((loop.index-1) % 12)+((loop.index-1)%12+1)*4 %}
       {% set top = 32*(loop.index//13)+((loop.index//13+1))*4 %}
       {% set errTag = '' %}
       {% set errTagB = 'border:2px solid #e1e1e1' %}
         <a href="pickerror/{{n}}/Image" class="" target="_blank">
-          <span class="errorLabel" style="background:url('thumbCombin/'); background-position:{{left}} {{top}}">
+          <span class="errorLabel" style="background:url('thumbCombin/'); background-position:-{{left}} -{{top}}">
             {% if n in errorList %}
               {% set errTag = 'border border-danger' %}
               {% set errTagB = 'border:2px solid #e13344' %}
-              <span class="badge badge-danger" Width="48px">错误</span>
+              <span class="badge badge-danger" Width="48px" style="">E</span>
+            {% else %}
+              <span class="badge badge-success" Width="48px" style="">T</span>
             {% endif %}
           </span>
         </a>
