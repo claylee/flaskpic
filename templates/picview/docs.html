@@ -99,14 +99,14 @@
 })(jQuery);
 
 $(function(){
+		var page = {{curpage}};
+		if(!page)
+			page = 1;
 		$(".pagination").createPage({
 				totalPage:{{pages}},
-				currPage:1,
+				currPage:page,
 				backFn:function(p){
-					$("#doclist").empty()
-						$.get("/picview/docs/1/"+p,function(e){
-								$("#doclist").append($(e).find("#doclist").html());
-						})
+					$(window.location).attr('href', "/picview/docs/1/"+p);
 				}
 		});
 })

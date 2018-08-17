@@ -23,7 +23,7 @@ def docs(cateName = None, page = 0, pagesize=20):
         #print(l.title)
         l.cover = docCover(l.title)
 
-    return render_template("/picview/docs.html",docs = doclist, pages = pages)
+    return render_template("/picview/docs.html",docs = doclist, pages = pages, curpage=page)
 
 @picview.route("/files/",methods=["GET","POST"])
 @picview.route("/files/<docName>/",methods=["GET","POST"])
