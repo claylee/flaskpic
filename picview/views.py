@@ -23,7 +23,7 @@ def docs(cateName = None, page = 0, pagesize=20):
         #print(l.title)
         l.cover = docCover(l.title)
 
-    return render_template("/picview/docs.html",docs = doclist, pages = pages)
+    return render_template("/picview/docs.html",docs = doclist, pages = pages, curpage=page)
 
 @picview.route("/files/",methods=["GET","POST"])
 @picview.route("/files/<docName>/",methods=["GET","POST"])
@@ -44,5 +44,6 @@ def fullview(docName = None, fid = 0):
 @picview.route("/docCover/<docname>/",methods=["GET","POST"])
 def docCover(docname = None):
     pics = picfile.query.filter(picfile.pictitle == docname).all()
-
+    if len(pics) == 0:
+        return None
     return pics[len(pics)-1].picurl
