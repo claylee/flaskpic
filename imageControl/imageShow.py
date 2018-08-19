@@ -34,6 +34,10 @@ class imageShow(object):
     def ImageCombinThumb(imagePath,rtype,imageNames):
         if not os.path.exists(imagePath):
             return
+        thumNailName = "d:/thumb{}.png".format(rtype)
+        print(thumNailName)
+        if(os.path.exists(thumNailName)):
+            return thumNailName
         imagePath = os.path.join(imagePath,rtype)
         #filenames = os.listdir(imagePath) # 只查询图片格式
         #print(len(filenames))
@@ -41,8 +45,6 @@ class imageShow(object):
         #print(len(filenames))
         cols = int(12)
         rows =  int(len(imageNames) / cols + 1);
-        print(imageNames)
-        print(cols, rows)
 
         thumbsize = int(32)
         marginGaps =  int(4)
@@ -71,8 +73,8 @@ class imageShow(object):
                 with Image.open(fname) as imgFile:
                     imgFile = imgFile.resize((32, 32))
                     newImage.paste(imgFile,box)
-        newImage.save("d:/thumbcoom.png")
-        return "d:/thumbcoom.png"
+        newImage.save(thumNailName)
+        return thumNailName
 
     def ImageMaskLabel(imagePath, labelPath, saveImagePath=None,tunel=0):
         image = Image.open(imagePath)
