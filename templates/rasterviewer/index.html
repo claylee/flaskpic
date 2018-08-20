@@ -16,8 +16,8 @@
       {% set top = 32*(loop.index//13)+((loop.index//13+1))*4 %}
       {% set errTag = '' %}
       {% set errTagB = 'border:2px solid #e1e1e1' %}
-        <a href="pickerror/{{n}}/Image" class="" target="_blank">
-          <span class="errorLabel" style="background:url('thumbCombin/'); background-position:-{{left}} -{{top}}">
+        <a href="/rasterviewer/pickerror/{{n}}/Image" class="" target="_blank">
+          <span class="errorLabel" style="background:url('/rasterviewer/thumbCombin/'); background-position:-{{left}} -{{top}}">
             {% if n in errorList %}
               {% set errTag = 'border border-danger' %}
               {% set errTagB = 'border:2px solid #e13344' %}
@@ -35,8 +35,8 @@
       {% set top = 32*(loop.index//13)+((loop.index//13+1))*4 %}
       {% set errTag = '' %}
       {% set errTagB = 'border:2px solid #e1e1e1' %}
-        <a href="pickerror/{{n}}/Label" class="" target="_blank">
-          <span class="errorLabel" style="background:url('thumbCombin/Label'); background-position:-{{left}} -{{top}}">
+        <a href="/rasterviewer/pickerror/{{n}}/Label" class="" target="_blank">
+          <span class="errorLabel" style="background:url('/rasterviewer/thumbCombin/Label'); background-position:-{{left}} -{{top}}">
             {% if n in errorList %}
               {% set errTag = 'border border-danger' %}
               {% set errTagB = 'border:2px solid #e13344' %}

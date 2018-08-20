@@ -6,6 +6,9 @@ from models import document, category, picfile
 from database import db_session
 from imageControl import imageShow #getImageThumbnail
 from application import app
+from rasterConfig import RasterRoots
+
+import json
 imgShow = imageShow.imageShow
 getImageThumbnail = imageShow.imageShow.getImageThumbnail
 piccategory = category.piccategory
@@ -113,7 +116,9 @@ def readThumb(name=None,rtype="Image",size=64):
 
 @rasterviewer.route("/getRasterNames/",methods=["GET","POST"])
 def getRasterNames():
-    rasterRoot="D:/ImageSplite/tiffdata/LabelRnd"
+    #rasterRoot="D:/ImageSplite/tiffdata/LabelRnd"
+    rasterSet = RasterRoots.loadRaster(session["curRasterSet"])
+    rasterRoot= rasterSet["path"]
     imageNamesTrain="train"
     imageNamesVal="val"
 
@@ -127,16 +132,24 @@ def getRasterNames():
 
 @rasterviewer.route('/rasterDb/')
 def rasterdb():
-    dbList = app.config["RASTERDB"]
-    return render_template("/rasterviewer/category.html",cateList = dbList)
+    #dbList = app.config["RASTERDB"]
+    rasterList = RasterRoots.loadRasterList()
+    return render_template("/rasterviewer/category.html",cateList = rasterList)
 
 @rasterviewer.route('/thumbCombin/')
 @rasterviewer.route('/thumbCombin/<rtype>')
 def rasterThumbCombin(rtype="Image"):
-    rasterRoot="D:/ImageSplite/tiffdata/LabelRnd/"
+    rasterSet = RasterRoots.loadRaster(session["curRasterSet"])
+    rasterRoot= rasterSet["path"]#"D:/ImageSplite/tiffdata/LabelRnd/"
+    print(rasterRoot)
     imageNames = getRasterNames()
     imagePath = imgShow.ImageCombinThumb(rasterRoot,rtype,imageNames)
     image = open(imagePath, "rb").read()
     response = make_response(image)
     response.headers['Content-Type'] = 'image/jpeg'
     return response
+
+@rasterviewer.route('/setrasterset/<dbname>')
+def setrasterset(dbname=""):
+    session["curRasterSet"] = dbname
+    return redirect(url_for('rasterviewer.index'))
